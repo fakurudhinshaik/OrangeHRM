@@ -1,0 +1,69 @@
+package com.RadioBottons;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class RadioButtonsTesting extends BaseTest{
+
+	@Test
+	public void group1radioButtonsTesting()
+	{
+	
+		/*
+		  <input type="radio" name="group1" value="Milk"> 
+		   <input type="radio" name="group1" value="Butter" checked=""> 
+           <input type="radio" name="group1" value="Cheese"> Cheese<hr>
+
+
+           <input type="radio" name="group2" value="Water"> Water<br>
+           <input type="radio" name="group2" value="Beer"> Beer<br>
+           <input type="radio" name="group2" value="Wine" checked=""> 
+		 */
+		/*
+		By group1RadioButtonsProperty=By.name("group1");
+		List<WebElement>group1RadioButtons=(List<WebElement>) driver.findElement(group1RadioButtonsProperty);
+		
+		for(int group1RadioButtonsindexClick=0;group1RadioButtonsindexClick<group1RadioButtons.size();group1RadioButtonsindexClick++)
+		{
+		
+			group1RadioButtons.get(group1RadioButtonsindexClick).click();
+			
+			for(int group1RadioButtonsindex=0;group1RadioButtonsindex<group1RadioButtons.size();group1RadioBottonsStatusIndex++)
+			{
+				
+				System.out.println(group1RadioButtons.get(group1RadioBottonsStatusIndex).getAttribute("value")+"-"+group1RadioButtons.get(group1RadioBottonsStatusIndex).getAttribute("checked"));
+				
+			}
+			
+		}
+	*/
+		
+		By group1RadioButtonsProperty=By.name("group1");
+		List<WebElement>group1RadioButtons=driver.findElements(group1RadioButtonsProperty);
+
+		// To goto every Group1 Radio buttons to perform click operation
+		for(int group1RadioButtonsindexClick=0;group1RadioButtonsindexClick<group1RadioButtons.size();group1RadioButtonsindexClick++)
+		{
+
+		group1RadioButtons.get(group1RadioButtonsindexClick).click();
+
+		Thread.sleep(5000);
+		// getting the status of all the Group1 Radio buttons
+		for(int group1RadioButtonsStatusIndex=0;group1RadioButtonsStatusIndex<group1RadioButtons.size();group1RadioButtonsStatusIndex++)
+		{
+		// System.out.print(group1RadioButtons.get(group1RadioButtonsStatusIndex).getAttribute("value")+" - ");
+		// System.out.println(group1RadioButtons.get(group1RadioButtonsStatusIndex).getAttribute("checked"));
+
+		System.out.println(group1RadioButtons.get(group1RadioButtonsStatusIndex).getAttribute("value")+" - "+group1RadioButtons.get(group1RadioButtonsStatusIndex).getAttribute("checked"));
+
+		Thread.sleep(5000);
+		}
+
+		System.out.println();
+		}
+	
+	}
+}

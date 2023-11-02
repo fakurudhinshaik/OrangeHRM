@@ -1,0 +1,70 @@
+package com.Xpath;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.Utility.Log;
+
+public class FacebookLoginTest {
+	
+	public WebDriver driver;
+	String applicationUrlAddress="https://www.facebook.com/";
+	
+	@BeforeTest
+	public void setUp()
+	{
+		
+		System.setProperty("webdriver.chrome.driver", "./ChromeDriver/chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		Log.info("*** Chrome Browser Launched Successfully ***");
+		
+		
+		driver.get(applicationUrlAddress);
+		
+		//Log.info("*** Navigated To FaceBook Application Login Page");
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		
+	}
+
+	@AfterTest
+	public void tearDown()
+	{
+		
+		driver.quit();
+		
+		//Log.info("*** FaceBook Application along with Chrome Browser Closed ");
+	}
+	
+	@Test
+	public void facebookLoginTest()
+	{
+		//<input type="text" class="inputtext _55r1 _6luy" name="email" id="email" data-testid="royal_email" 
+		//placeholder="Email address or phone number" autofocus="1" aria-label="Email address or phone number">
+		
+		//Reletive xpath
+		// //tagname[@attribute='attributeValue']
+		// //input[@data-testid='royal_email']
+		
+		By emailIdProperty=By.xpath("//input[@data-testid='royal_email']");
+		WebElement emailId=driver.findElement(emailIdProperty);
+		emailId.sendKeys("shaik.fakurudhin2552@gmail.com");
+		
+		
+		
+		
+	}
+	
+	
+	
+}

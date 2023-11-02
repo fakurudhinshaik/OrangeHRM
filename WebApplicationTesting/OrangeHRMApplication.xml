@@ -1,0 +1,9 @@
+<suinte name="OrangeHRMApplication">
+<test name="chrome">
+<parameter name="Broswer" value="chrome"/>
+<clasees>
+<class name="com.Grid.LoginTest"/>
+
+</clasees>
+</test>
+</suinte>

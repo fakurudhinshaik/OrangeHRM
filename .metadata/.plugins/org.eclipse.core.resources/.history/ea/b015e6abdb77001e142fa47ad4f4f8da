@@ -1,0 +1,7 @@
+Feature: OrangeHRM Application Funtionalities Testing
+
+  Scenario: OrangeHRM Application LoginPage Test
+    Given User should open the Edge Browser in the Sysyem
+    When User should enters OrangeHRM Application Url Address
+    Then User should be navigated to OrangeHRM Application Login Page
+    Then The User should close the Edge Browser along with the OrangeHRM Application

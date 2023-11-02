@@ -1,0 +1,48 @@
+package com.BaseTest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.Utility.Log;
+
+public class BaseTest {
+	
+	public static WebDriver driver;
+	String applicationUrlAdress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+	
+	@BeforeTest
+	public void setUp()
+	{
+	
+		System.setProperty("webdriver.chrome.driver","./ChromeDriver/chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		Log.info("**** Chrome Broswer Launched Successfully ****");
+		
+		driver.get(applicationUrlAdress);
+		
+		Log.info(" **** Navigated to OrangeHRM Application Login Page ****");
+		
+		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		
+		driver.quit();
+		
+		Log.info(" **** OrangeHRM Application along with Chrome Browser Closed ****");
+		
+	}
+
+}

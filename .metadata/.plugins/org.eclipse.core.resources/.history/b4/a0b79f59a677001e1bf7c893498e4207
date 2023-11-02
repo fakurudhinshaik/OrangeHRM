@@ -1,0 +1,85 @@
+package com.OrangeHRMApplicationTests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.BaseTest.BaseTest;
+
+public class LoginTest extends BaseTest{
+	@Test
+	public void orageHRMLogin()
+	{
+		
+
+	String expectedOrangeHrmUrlAdress=driver.getCurrentUrl();
+	 System.out.println("The Expected Current OrangeHRm Url Is :-"+expectedOrangeHrmUrlAdress);
+	 
+	 System.out.println();
+	 
+	 String actualOrangeHRMUrlAdress=driver.getCurrentUrl();
+	 System.out.println("The Actual Current OrangeHRM  Url Is :-"+actualOrangeHRMUrlAdress);
+	 
+	 System.out.println();
+	 
+	 if(actualOrangeHRMUrlAdress.equals(expectedOrangeHrmUrlAdress))
+	 {
+		 System.out.println(" The OrangeHRM Url Adress is Matched ----- PASS -----");
+	 }
+	 else
+	 {
+		 System.out.println(" The OrangeHRM Url Adress is Not Matched ----- FAIL -----");
+	 }
+	
+	 System.out.println();
+	 
+	 By LOGINPanelProperty=By.id("logInPanelHeading");
+	 WebElement LOGINPanel=driver.findElement(LOGINPanelProperty);
+	 String LOGINpannel=LOGINPanel.getText();
+	 System.out.println(" The LOGINPanel Text is :-"+LOGINpannel);
+	
+	 System.out.println();
+	 
+	 String userNameTestData="admin";
+	 By UserNameProperty=By.id("txtUsername");
+	 WebElement UserName=driver.findElement(UserNameProperty);
+	 UserName.sendKeys(userNameTestData);
+	 
+	 System.out.println();
+	 
+	 String PasswordTestdata="Shaik@123S";
+	 By PasswordProperty=By.id("txtPassword");
+	 WebElement Password=driver.findElement(PasswordProperty);
+	 Password.sendKeys(PasswordTestdata); 
+	 
+	 System.out.println();
+	 
+	 By LoginProperty=By.id("btnLogin");
+	 WebElement Login=driver.findElement(LoginProperty);
+	 Login.click();
+	 
+	 String HomePageUrlAdress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/dashboard";
+	 driver.get(HomePageUrlAdress);
+	 
+	 String ExpectedHomepageUrlAdress=driver.getCurrentUrl();
+	 System.out.println(" The OrangeHRM Home Page Url Adress is :-"+ExpectedHomepageUrlAdress);
+	 
+	 System.out.println();
+	 
+	 String ActualHomepageUrlAdress=driver.getCurrentUrl();
+	 System.out.println(" The OrangeHRM Home Page Url Adress Is:-"+ActualHomepageUrlAdress);
+	 
+	 System.out.println();
+	 
+	 if(ActualHomepageUrlAdress.contains(ExpectedHomepageUrlAdress))
+	 {
+		 System.out.println(" The OrangeHRM Home Page Url Is Matched ----- PASS -----");
+	 }
+	 else
+	 {
+		 System.out.println(" The OrangeHRM Home Page Url Is NOT Matched ----- FAIL -----");
+	 }
+	 
+	 System.out.println();
+	}
+}
